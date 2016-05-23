@@ -21,6 +21,18 @@
             'app.quick-panel',
 
             // Sample
-            'app.sample'
+            'app.sample',
+
+            // Login
+            'app.pages.auth.login',
+
+            // Login-v2
+            'app.pages.auth.login-v2',
+
+            // Register
+            'app.pages.auth.register',
+
+            // Register
+            'app.pages.auth.reset-password',
         ]);
 })();
