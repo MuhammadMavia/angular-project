@@ -9,7 +9,7 @@
 
             <form name="loginForm" novalidate ng-submit="vm.doLogin()">
                 <md-input-container class="md-block" md-no-float>
-                    <input type="email" name="email" ng-model="vm.user.email" placeholder="Email"
+                    <input type="email" name="username" ng-model="vm.user.username" placeholder="Email"
                            translate translate-attr-placeholder="LOGIN.EMAIL"
                            ng-pattern="/^.+@.+\..+$/" required>
                     <div ng-messages="loginForm.email.$error" role="alert" multiple>
@@ -54,16 +54,16 @@
                 <span class="text" translate="LOGIN.OR">OR</span>
             </div>
 
-            <md-button class="md-raised google">
+           <!-- <md-button class="md-raised google">
                 <div layout="row" layout-align="center center">
                 <span>
                     <md-icon md-font-icon="icon-google-plus" class="s16"></md-icon>
                     <span translate="LOGIN.WITH_GOOGLE">Log in with Google</span>
                 </span>
                 </div>
-            </md-button>
+            </md-button>-->
 
-            <md-button class="md-raised facebook">
+            <md-button class="md-raised facebook" href="http://www.domain.com/apiapp/loginsocial/?network=facebook" target="_blank">
                 <div layout="row" layout-align="center center">
                 <span>
                     <md-icon md-font-icon="icon-facebook" class="s16"></md-icon>
