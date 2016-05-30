@@ -6,27 +6,25 @@
     .controller('LoginController', LoginController);
 
   /** @ngInject */
-  function LoginController($http, $mdToast) {
+  function LoginController($mdToast) {
     var vm = this;
     vm.doLogin = function () {
-      var userData = {
-        'username': vm.user.username,
-        'password': vm.user.password
-      };
       $.ajax({
           type: 'POST',
           url: 'https://www.afterbanks.com/apiapp/login/',
-          data: userData
+          data: vm.user
         }
       ).then(
         function (response) {
-          if (response.indexOf('"loginResult": 1,') != -1) {
-            location.assign('https://midomain.com/main/');
+          response = response.replace('"nextUrl', '"nextUrl"');
+          response = JSON.parse(response);
+          if (response.loginResult == 1) {
+            location.assign(response.nextUrl);
           }
-          else  {
+          else {
             $mdToast.show(
               $mdToast.simple()
-                .textContent('Wrong username or password!')
+                .textContent(response.reason)
                 .position('top right')
                 .hideDelay(3000)
             );
